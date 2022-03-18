@@ -1,10 +1,13 @@
 import pandas as pd
 import difflib
+import os
 from pywebio import *
 from pywebio.input import input, TEXT
 from pywebio.output import put_info
+from flask import Flask
 
 
+app = Flask(__name__)
 data = pd.read_csv('names_tribe.csv')
 
 
@@ -55,4 +58,7 @@ def run_sort(name_entered, similarity_tuple):
         put_info("Sorry, your name could not be matched.", closable=True, scope=None, position=- 1)
 
 
-tribe_detect(name_tribe)
+# tribe_detect(name_tribe)
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True, port=port)
