@@ -1,1 +1,1 @@
-web: python tribe_detect_HIY.py --port=$PORT
+web: python tribe_detect_HIY.py --port=80
