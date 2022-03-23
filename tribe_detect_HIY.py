@@ -3,19 +3,6 @@ import pandas as pd
 from pywebio import *
 from pywebio.input import input, TEXT
 from pywebio.output import put_info
-import argparse
-
-from flask import Flask    ####
-from pywebio.platform.flask import webio_view
-from pywebio import STATIC_PATH
-from flask import Flask, send_from_directory
-from pywebio.input import *
-from pywebio.output import *
-import argparse
-from pywebio import start_server
-
-
-app = Flask(__name__)
 
 
 data = pd.read_csv('names_tribe.csv')
@@ -68,9 +55,4 @@ def run_sort(name_entered, similarity_tuple):
         put_info("Sorry, your name could not be matched.", closable=True, scope=None, position=- 1)
 
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument("-p", "--port", type=int, default=8080)
-    args = parser.parse_args()
-
-    start_server(tribe_detect(name_tribe), port=args.port)
+tribe_detect(name_tribe)

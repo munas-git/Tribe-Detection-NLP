@@ -1,1 +1,1 @@
-web: python app.py --port=$PORT
+web: python tribe_detect_HIY.py --port=$PORT
